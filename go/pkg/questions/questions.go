@@ -1,9 +1,5 @@
 package questions
 
-import (
-    "fmt"
-)
-
 type Quiz struct {
     SubjectList []Subject
 }
@@ -16,12 +12,6 @@ type Subject struct {
 type Question struct {
     Prompt string
     Answers []string
-}
-
-type QuestionsTemplate struct {
-    HistoryQuestions []map[string][]string
-    ScienceQuestions []map[string][]string
-    QuestionList [][]map[string][]string
 }
 
 var historyQuestions = []map[string][]string {
@@ -41,82 +31,41 @@ var scienceQuestions = []map[string][]string {
     {"How is energy lost along a food chain?" : {"respiration", "urine", "faeces", "not all biomass eaten", "not all biomass consumed"}},
 }
 
-var QuestionList = [][]map[string][]string {scienceQuestions, historyQuestions}
-
 var maths = map[string]interface{} {
     "name": "maths",
-    "questions": []map[string]interface{} {
-        {"square root 9": []interface{} {3, -3}},
+    "questions": []map[string][]string {
+        {"square root 9": []string {"3", "-3"}},
     },
 }
 
 var english = map[string]interface{} {
     "name": "english",
-    "questions": []map[string]interface{} {
-        {"how long on an AO2": []interface{} {"12", "12 mins", "12 minutes", 12}},
+    "questions": []map[string][]string {
+        {"how long on an AO2": []string {"12", "12 mins", "12 minutes"}},
     },
 }
 
 var SubjectList = []map[string]interface{} {maths, english}
 
-func MakeQuestions() QuestionsTemplate {
-    questions := QuestionsTemplate{historyQuestions, scienceQuestions, QuestionList}
-    return questions
-}
-
-func OtherMakeQuiz(subjects []map[string]interface{}) {
+func MakeQuiz(subjects []map[string]interface{}) Quiz {
     var subjectList []Subject
 
-    fmt.Println("\n\n\n", subjects)
-
     for _, subject := range subjects {
-        name := subject["name"]
+        rawName := subject["name"]
+        name := rawName.(string)
         rawQuestions := subject["questions"]
-
-        fmt.Println("\n", subject)
-        fmt.Println("\n", name)
-        fmt.Println("\n", rawQuestions)
-
+        questions := rawQuestions.([]map[string][]string)
         var questionList []Question
-
-        fmt.Println("\n\n\n\n", name, questionList)
-
-        questions := rawQuestions.([]map[string]interface{})
 
         for _, question := range questions {
-            fmt.Println("\n question:", question)
             for prompt, answers := range question {
-                fmt.Println("\nprompt", prompt, "\nanswers", answers)
-                answers = []string(answers)
-                fmt.Println("\nprompt", prompt, "\nanswers", answers)
-                //fmtQuestion := Question{prompt, answers}
-                //questionList = append(questionList, fmtQuestion)
+                fmtQuestion := Question{prompt, answers}
+                questionList = append(questionList, fmtQuestion)
             }
         }
+        fmtSubject := Subject{name, questionList}
+        subjectList = append(subjectList, fmtSubject)
     }
-    fmt.Println(subjectList)
-    return
-}
-
-func MakeQuiz(subjects [][]map[string][]string) bool {
-    fmt.Println(subjects)
-    var subjectList []Subject
-
-    for _, subject := range subjects {
-        //name := subject["name"]
-        var questionList []Question
-
-        for _, questionMap := range subject {
-
-            for prompt, answers := range questionMap {
-                question := Question{prompt, answers}
-                questionList = append(questionList, question)
-            }
-        }
-        fmt.Println(questionList)
-        newSubject := Subject{"", questionList}
-        subjectList = append(subjectList, newSubject)
-    }
-    fmt.Println(subjectList)
-    return true
+    quiz := Quiz{subjectList}
+    return quiz
 }

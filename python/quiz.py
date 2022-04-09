@@ -14,7 +14,7 @@ def runQuiz(questions):
         correct = False
         print(question.prompt)
         response = input()
-        if response.lower() in ["q", "quit"]:
+        if response.lower().strip() in ["q", "quit"]:
             break
         for answer in question.answers:
             if response.lower().strip() == str(answer).lower().strip():

@@ -19,13 +19,14 @@ def getSubjects(quiz):
         print("Which subjects do you want to revise", *subjectNames, "or all?", sep=", ")
         print("Type 'done' to continue")
         inputSubject = input()
-        inputSubject = inputSubject.strip()
+        inputSubject = inputSubject.strip().lower()
 
         if inputSubject in ["q", "quit"]:
             quit()
         elif inputSubject in ["a", "all"]:
             print("All chosen!")
             print()
+            chosenSubjects = []
             done = True
         elif inputSubject in ["d", "done"]:
             if chosenSubjects != []:
@@ -122,17 +123,6 @@ def getQuestions():
             return True, error
         except exceptions.ValidationError as error:
             return False, error
-
-    #print("ran")
-    #try:
-    #    global questions
-    #    print("found")
-    #except FileNotFoundError as error:
-    #    print("not found")
-    #    print("Error:", error)
-    #    print()
-    #    quiz = useDefaultQuestions()
-    #    return quiz
 
     try:
         with open("questions.yaml", "r") as questions:

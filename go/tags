@@ -5,48 +5,40 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
-0	pkg/questions/questions.json	/^			{ "prompt" : "ping", "answers": [ "pong" ] }$/;"	o	array:questions
-0	pkg/questions/questions.json	/^			{ "prompt" : "ping", "answers": [ "pong" ] }$/;"	s	array:questions.0.answers
-0	pkg/questions/questions.json	/^		"HistoryQuestions": {$/;"	s	array:QuestionsList
-1	pkg/questions/questions.json	/^		"ScienceQuestions": {$/;"	s	array:QuestionsList
 Answers	pkg/questions/questions.go	/^    Answers []string$/;"	m	struct:questions.Question	typeref:typename:[]string
-Combine	pkg/utils/utils.go	/^func Combine(map1 map[string][]string, map2 map[string][]string) map[string][]string {$/;"	f	package:utils	typeref:typename:map[string][]string
+Combine	pkg/utils/utils.go	/^func Combine(map1 []map[string][]string, map2 []map[string][]string) []map[string][]string {$/;"	f	package:utils	typeref:typename:[]map[string][]string
+CombineMap	pkg/utils/utils.go	/^func CombineMap(map1 map[string][]string, map2 map[string][]string) map[string][]string {$/;"	f	package:utils	typeref:typename:map[string][]string
 Contains	pkg/utils/utils.go	/^func Contains(needle string, haystack []string) bool {$/;"	f	package:utils	typeref:typename:bool
 GetRandKeys	pkg/utils/utils.go	/^func GetRandKeys(questions map[string][]string) []string {$/;"	f	package:utils	typeref:typename:[]string
-GetSubjects	pkg/utils/utils.go	/^func GetSubjects(questions questions.QuestionsTemplate) [][]map[string][]string {$/;"	f	package:utils	typeref:typename:[][]map[string][]string
+GetSubjects	pkg/utils/utils.go	/^func GetSubjects(quiz questions.Quiz) []questions.Subject {$/;"	f	package:utils	typeref:typename:[]questions.Subject
 HistoryQuestions	pkg/questions/questions.go	/^    HistoryQuestions []map[string][]string$/;"	m	struct:questions.QuestionsTemplate	typeref:typename:[]map[string][]string
 MakeQuestions	pkg/questions/questions.go	/^func MakeQuestions() QuestionsTemplate {$/;"	f	package:questions	typeref:typename:QuestionsTemplate
-MakeQuiz	pkg/questions/questions.go	/^func MakeQuiz(subjectList [][]map[string][]string) bool {$/;"	f	package:questions	typeref:typename:bool
+MakeQuiz	pkg/questions/questions.go	/^func MakeQuiz(subjects [][]map[string][]string) bool {$/;"	f	package:questions	typeref:typename:bool
 Name	pkg/questions/questions.go	/^    Name string$/;"	m	struct:questions.Subject	typeref:typename:string
+OtherMakeQuiz	pkg/questions/questions.go	/^func OtherMakeQuiz(subjects []map[string]interface{}) Quiz {$/;"	f	package:questions	typeref:typename:Quiz
 Prompt	pkg/questions/questions.go	/^    Prompt string$/;"	m	struct:questions.Question	typeref:typename:string
 Question	pkg/questions/questions.go	/^type Question struct {$/;"	s	package:questions
 QuestionList	pkg/questions/questions.go	/^    QuestionList [][]map[string][]string$/;"	m	struct:questions.QuestionsTemplate	typeref:typename:[][]map[string][]string
 QuestionList	pkg/questions/questions.go	/^var QuestionList = [][]map[string][]string {scienceQuestions, historyQuestions}$/;"	v	package:questions
 Questions	pkg/questions/questions.go	/^    Questions []Question$/;"	m	struct:questions.Subject	typeref:typename:[]Question
-QuestionsList	pkg/questions/questions.json	/^	"QuestionsList": [$/;"	a
 QuestionsTemplate	pkg/questions/questions.go	/^type QuestionsTemplate struct {$/;"	s	package:questions
-Quiz	cmd/quiz.go	/^func Quiz(questions map[string][]string) {$/;"	f	package:quiz
+Quiz	cmd/quiz.go	/^func Quiz(questionList []map[string][]string, quiz bool) {$/;"	f	package:quiz
 Quiz	pkg/questions/questions.go	/^type Quiz struct {$/;"	s	package:questions
+RunQuiz	cmd/quiz.go	/^func RunQuiz(questions []questions.Question) {$/;"	f	package:quiz
 ScienceQuestions	pkg/questions/questions.go	/^    ScienceQuestions []map[string][]string$/;"	m	struct:questions.QuestionsTemplate	typeref:typename:[]map[string][]string
 Subject	pkg/questions/questions.go	/^type Subject struct {$/;"	s	package:questions
 SubjectList	pkg/questions/questions.go	/^    SubjectList []Subject$/;"	m	struct:questions.Quiz	typeref:typename:[]Subject
+SubjectList	pkg/questions/questions.go	/^var SubjectList = []map[string]interface{} {maths, english}$/;"	v	package:questions
 Test	pkg/tests/test.go	/^func Test() bool {$/;"	f	package:tests	typeref:typename:bool
 Version	pkg/utils/utils.go	/^func Version() {$/;"	f	package:utils
-answers	pkg/questions/questions.json	/^			{ "prompt" : "ping", "answers": [ "pong" ] }$/;"	a	object:questions.0
-english	pkg/questions/questions.go	/^var english = []map[string][]string {$/;"	v	package:questions
+english	pkg/questions/questions.go	/^var english = map[string]interface{} {$/;"	v	package:questions
 historyQuestions	pkg/questions/questions.go	/^var historyQuestions = []map[string][]string {$/;"	v	package:questions
 main	main.go	/^func main() {$/;"	f	package:main
 main	main.go	/^package main$/;"	p
-main	test.go	/^func main() {$/;"	f	package:main
-main	test.go	/^package main$/;"	p
-maths	pkg/questions/questions.go	/^var maths = []map[string][]string {$/;"	v	package:questions
-name	pkg/questions/questions.json	/^		"name": "History",$/;"	s
-prompt	pkg/questions/questions.json	/^			{ "prompt" : "ping", "answers": [ "pong" ] }$/;"	s	object:questions.0
+maths	pkg/questions/questions.go	/^var maths = map[string]interface{} {$/;"	v	package:questions
 questions	pkg/questions/questions.go	/^package questions$/;"	p
-questions	pkg/questions/questions.json	/^		"questions": [$/;"	a
 quiz	cmd/quiz.go	/^package quiz$/;"	p
 scienceQuestions	pkg/questions/questions.go	/^var scienceQuestions = []map[string][]string {$/;"	v	package:questions
-subjectList	pkg/questions/questions.go	/^var subjectList = [][]map[string][]string{maths, english}$/;"	v	package:questions
 test1	pkg/tests/test.go	/^func test1() (bool, string) {$/;"	f	package:tests	typeref:typename:(bool, string)
 tests	pkg/tests/test.go	/^package tests$/;"	p
 utils	pkg/utils/utils.go	/^package utils$/;"	p

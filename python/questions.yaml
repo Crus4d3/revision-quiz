@@ -47,8 +47,28 @@
 
 - name: english
   questions:
-      - prompt: How long should you spend on a ten mark A02?
+      - prompt: What technique uses weather to show the mood of a scene?
         answers:
-            - 12
-            - 12 mins
-            - 12 minutes
+            - pathetic fallacy
+      - prompt: Can you put a semicolon before a list?
+        answers:
+            - "yes"
+
+- name: grannieing
+  questions:
+      - prompt: How often should I babysit?
+        answers:
+            - "0 hours"
+            - too many
+            - never
+      - prompt: Should I be aloud to beat my grandchildren?
+        answers:
+           - of course
+           - "yes"
+           - always
+      - prompt: Should I allow my grandchildren to eat me out of house and home?
+        answers:
+           - "no"
+           - no food allowed
+           - no no food allowed
+           - never

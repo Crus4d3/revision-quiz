@@ -1,5 +1,5 @@
 ---
-- name: History
+- name: history
   questions:
       - prompt: When was the Paris Peace Conference?
         answers:
@@ -32,7 +32,7 @@
             - woodrow wilson
             - wilson
 
-- name: Science
+- name: science
   questions:
       - prompt: What biological process removes carbon dioxide from the atmosphere?
         answers:
@@ -44,3 +44,31 @@
             - faeces
             - not all biomass eaten
             - not all biomass consumed
+
+- name: english
+  questions:
+      - prompt: What technique uses weather to show the mood of a scene?
+        answers:
+            - pathetic fallacy
+      - prompt: Can you put a semicolon before a list?
+        answers:
+            - "yes"
+
+- name: grannieing
+  questions:
+      - prompt: How often should I babysit?
+        answers:
+            - "0 hours"
+            - too many
+            - never
+      - prompt: Should I be aloud to beat my grandchildren?
+        answers:
+           - of course
+           - "yes"
+           - always
+      - prompt: Should I allow my grandchildren to eat me out of house and home?
+        answers:
+           - "no"
+           - no food allowed
+           - no no food allowed
+           - never
